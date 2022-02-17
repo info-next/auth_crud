@@ -3,6 +3,8 @@ const logger = require('morgan');
 const movies = require('./routes/movies') ;
 const users = require('./routes/users');
 const bodyParser = require('body-parser');
+const http = require('http');
+const port = process.env.PORT || 3000
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
 const app = express();
@@ -49,11 +51,11 @@ app.use(function(err, req, res, next) {
   else 
     res.status(500).json({message: "Something looks wrong :( !!!"});
 });
-const http = require('http');
-const port = process.env.PORT || 3000
 
 const server = http.createServer((req, res) => {
-
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/html');
+  res.end('<h1>Hello World</h1>');
 });
 
 server.listen(port,() => {
