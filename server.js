@@ -3,7 +3,6 @@ const logger = require('morgan');
 const movies = require('./routes/movies') ;
 const users = require('./routes/users');
 const bodyParser = require('body-parser');
-const http = require('http');
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
 const app = express();
