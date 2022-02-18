@@ -51,7 +51,7 @@ app.use(function(err, req, res, next) {
     res.status(500).json({message: "Something looks wrong :( !!!"});
 });
 const port = process.env.PORT || 3000;
-const server= http.creatServer(app);
+const server= http.createServer(app);
 server.listen(port,() => {
   console.log(`Server running at port `+port);
 });
