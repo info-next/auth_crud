@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const movies = require('./routes/movies') ;
 const users = require('./routes/users');
+const http = require('http');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database'); //database configuration
 var jwt = require('jsonwebtoken');
@@ -50,7 +51,8 @@ app.use(function(err, req, res, next) {
     res.status(500).json({message: "Something looks wrong :( !!!"});
 });
 const port = process.env.PORT || 3000;
-app.listen(port,() => {
+const server= http.creatServer(app);
+server.listen(port,() => {
   console.log(`Server running at port `+port);
 });
 
